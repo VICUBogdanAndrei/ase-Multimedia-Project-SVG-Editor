@@ -1,0 +1,145 @@
+body {
+    background-image: url('media/background.png'); /* Înlocuiți cu calea corectă către fișierul dvs. */
+    background-size: cover; /* Asigură că imaginea de fundal acoperă întreaga pagină */
+    background-repeat: no-repeat; /* Previne repetarea imaginii */
+    background-attachment: fixed; /* Face ca fundalul să rămână fix, în loc să defileze odată cu pagina */
+}
+
+
+#drawRect img, #drawCircle img, #drawLine img, #drawEllipse img, #deleteButton img, #undoButton img, #redoButton img{
+    width: 20px;
+    height: 20px;
+}
+
+#toolbar {
+    display: flex; /* Utilizează flexbox pentru aliniere */
+    justify-content: center; /* Centrează butoanele pe axa orizontală */
+    align-items: center; /* Aliniază butoanele pe axa verticală */
+    flex-wrap: wrap; /* Permite butoanelor să treacă la următorul rând dacă nu încap */
+    gap: 10px; /* Adaugă un spațiu între butoane */
+    margin: 0 auto; /* Centrare orizontală a containerului */
+    padding: 10px; /* Spațiu în interiorul containerului */
+}
+
+#toolbar button {
+    display: flex;
+    align-items: center; /* Acesta va alinia vertical conținutul la centru */
+    justify-content: center; /* Acesta va alinia orizontal conținutul la centru */
+    gap: 5px; /* Acesta va adăuga un spațiu între imagine și text */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-bottom: 2px solid #ddd;
+    background-color: #f0f0f0;
+    padding: 10px 15px; /* Ajustează după necesitate */
+    margin: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Ajustează după necesitate */
+    text-decoration: none; /* Îndepărtează sublinierea dacă butonul este o ancoră (<a>) */
+    color: inherit; /* Folosește culoarea textului moștenită */
+    outline: none; /* Îndepărtează conturul când elementul este focalizat */
+    transition: all 0.3s ease; /* O tranziție netedă pentru hover și focus */
+    
+}
+
+
+#toolbar button:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#toolbar button.button-active {
+    background-color: #e7e7e7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-color: #007bff;
+}
+
+.color-picker-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.color-picker-container input[type="color"] {
+    -webkit-appearance: none; /* Pentru a elimina stilul implicit în Chrome și Safari */
+    appearance: none;
+    border: 0.5px solid black; /* Adaugă o bordură fină neagră */
+    border-radius: 5px; /* Rotunjește colțurile */
+    width: 30px; /* sau orice dimensiune doriți */
+    height: 30px; /* sau orice dimensiune doriți */
+    cursor: pointer;
+}
+
+.color-picker-container .color-picker-icon {
+    height: 20px; /* Ajustați înălțimea imaginii după necesități */
+    cursor: pointer;
+}
+
+#svgCanvas {
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    margin-top: 10px;
+    position: absolute; /* poziționare absolută pentru a permite centratul ușor */
+    top: 50%; /* poziționează la jumătatea înălțimii viewport-ului */
+    left: 50%; /* poziționează la jumătatea lățimii viewport-ului */
+    transform: translate(-50%, -50%); /* mută canvasul în sus și în stânga pentru a-l centra exact */
+    background-color: rgba(255, 255, 255, 0.90); /* culoarea de fundal albă cu transparență 90% */
+
+}
+
+@media screen and (max-width: 600px) {
+    #toolbar {
+        flex-direction: column;
+    }
+}
+
+.selected {
+    stroke: blue; /* sau orice altă culoare pentru a evidenția selecția */
+    stroke-width: 2; /* pentru a face evidențierea mai vizibilă */
+}
+
+.dragging {
+    cursor: grabbing;
+}
+
+.move-mode {
+    cursor: move;
+}
+
+
+/*Download button*/
+
+
+#downloadMenu {
+    position: fixed; /* Fixează pe ecran */
+    bottom: 10px; /* 10px de la partea de jos a ecranului */
+    right: 10px; /* 10px de la partea dreaptă a ecranului */
+    z-index: 1000; /* Asigură-te că este deasupra altor elemente */
+}
+
+
+#downloadOptions {
+    display: none; /* Inițial opțiunile sunt ascunse */
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 10px); /* Adaugă 10px pentru a împinge meniul mai sus */ /* Poziționat deasupra butonului de download cu 30px */
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+
+#downloadOptions button {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.hidden {
+    display: none;
+}
+
+#downloadMenu.open #downloadOptions {
+    display: block; /* Afișează opțiunile când meniul este deschis */
+}

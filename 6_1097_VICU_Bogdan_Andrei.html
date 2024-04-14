@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editor SVG Simplu</title>
+    <link rel="stylesheet" type="text/css" href="6_1097_VICU_Bogdan_Andrei.css">
+    <link rel="icon" href="img\paint-icon.svg" type="image/x-icon">
+</head>
+<body>
+
+
+    
+    <div id="toolbar">
+        <button id="drawRect"><img src="media\rectangle-frame-svgrepo-com.svg" alt="Rectangle"> Dreptunghi</button>
+        <button id="drawCircle"><img src="media\circle-oval-svgrepo-com.svg" alt="Circle"> Cerc</button>
+        <button id="drawEllipse"><img src="media\ellipse-outline-shape-variant-svgrepo-com.svg" alt="Elipse"> Elipsa</button>
+        <button id="drawLine"><img src="media\horizontal-line-svgrepo-com.svg" alt="Line"> Linie</button>   
+        
+
+        <div id="downloadMenu">
+            <button id="downloadButton">⬇️ Download</button>
+            <div id="downloadOptions" class="hidden">
+                <button id="downloadPng">Descarcă ca PNG</button>
+                <button id="downloadJpg">Descarcă ca JPG</button>
+                <button id="downloadSvg">Descarcă ca SVG</button>
+            </div>
+        </div>
+
+        <button id="deleteButton"><img src="media\erase.svg" alt="Delete">Delete</button>
+        
+        
+
+        <div class="color-picker-container">
+            <img src="media\picker-icon.svg" alt="Color Picker" class="color-picker-icon"> <!-- Adaugă imaginea sugestivă pentru picker -->
+            <input type="color" id="colorPicker" value="#ff0000">
+        </div>
+        <input type="range" id="lineWidthPicker" min="1" max="10" value="1">
+
+        
+        <button id="undoButton"><img src="media\undo1.svg" alt="Undo">Undo</button>
+        <button id="redoButton"><img src="media\redo.svg" alt="Redo">Redo</button>
+    </div>
+    <svg id="svgCanvas" width="1700" height="750" style="border:1px solid black;"></svg>
+    <script src="6_1097_VICU_Bogdan_Andrei.js"></script>
+
+    
+</body>
+</html>
